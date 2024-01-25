@@ -1,0 +1,52 @@
+mixin sPolling(data)
+	// start sPolling
+	+b.SECTION.sPolling.section#sPolling&attributes(attributes)
+		.container
+			.panel-block
+				if block
+					block
+				else
+					+form-wrap
+						+e.head.text-center
+							h2 Анкетирование
+						mixin group(t)
+							+e.group
+								+e.group-title.h6!= t
+								block
+						div
+							+group(`Укажите, пожалуйста, сколько сотрудников находится в&nbsp;Вашем подчинении:`)
+								+input('Введите числовое значение','text','В прямом')
+								+input('Введите числовое значение','text','В функциональном')
+
+							+group(`Сколько из&nbsp;указанных сотрудников занимают руководящую должность?`)
+								+input('Введите числовое значение')
+
+							+group(`Ваш общий стаж работы в&nbsp;должности руководителя.`)
+								+input('Выберите ','select')
+
+							+group(`Ваш управленческий стаж в&nbsp;Правительстве Москвы`)
+								+input('Выберите ','select') 
+
+							+group(`Сколько часов в&nbsp;неделю&nbsp;Вы готовы посвящать обучению в&nbsp;программе?`)
+								+input('Выберите ','select') 
+
+							+group(`Какие свои управленческие качества&nbsp;Вы можете назвать сильными?`)
+								+input('Введите Ваш текст ','textarea')(maxLength='1500' ) 
+
+							+group(`Какие зоны собственного развития как руководителя&nbsp;Вы видите?`)
+								+input('Введите Ваш текст ','textarea')(maxLength='1500' ) 
+
+							+group(`Какая из&nbsp;перечисленных управленческих сложностей для Вас актуальнее всего на&nbsp;данный момент?`)
+								+input('Выберите 3 варианта ','select')(multiple)
+
+							+group(`Опишите кратко задачу в&nbsp;сфере управления своей командой, которую&nbsp;Вы готовы решить до&nbsp;конца 2024&nbsp;года. Это поможет нам оценить потенциальную пользу программы &laquo;Урбан Лидер&raquo; и&nbsp;Кадровых сервисов Правительства Москвы в&nbsp;решении Вашей задачи.`)
+								+input('Введите Ваш текст ','textarea')(maxLength='1500' ) 
+
+							+group(`Сформулируйте приоритетные цели, которых&nbsp;Вы хотели&nbsp;бы достичь благодаря обучению.`)
+								+input('Введите Ваш текст ','textarea')(maxLength='1500'  max Length='1500' id="myTextarea3")
+									span(class="maxLength" 	data-textareaid="myTextarea3"  	data-warnclass="warning"  data-warnthreshold="40")
+									<span class='maxLength' data-textareaid='myTextarea3' data-string="#{current}/#{limit}"></span>
+							button.btn.btn-primary.w-100 Отправить
+							
+
+	// end sPolling

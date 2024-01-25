@@ -1,0 +1,43 @@
+extends ../layout/main.pug
+
+include ../blocks/headerBlock/_headerBlock.pug
+include ../blocks/sForm/_sForm.pug
+include ../blocks/sContent/_sContent.pug
+ 
+include ../blocks/sContact/_sContact.pug
+include ../blocks/sForm/_sForm.pug
+include ../blocks/sForm/_sForm.pug
+include ../blocks/sCatalog/_sCatalog.pug
+
+block variables
+	- let  mainPage= 'main-page' 
+	- let  bg= null
+
+block title
+	- let  title= 'Модалки'
+	title= title
+block pagecontent
+	//- +mob-mnu()
+	
+	
+	+parts('header')
+	main
+		.section.container
+			h1 Modal page 
+			mixin btn(a, t)
+				a(  href= a ).link-modal-js.btn.btn-primary.m-1= t
+			+btn("#modal-thank", 'modal-thank')
+			+btn("#modal-order", 'Вы записаны на 15 ноября 16:00')
+			+btn("#modal-time", 'Вы подтверждаете запись')
+			+btn("#modal-time2", 'Вы уже записаны на  ')
+			+btn("#modal-cancel", 'Отменить')
+			+btn("#modal-cancel2", 'Запись отменена')
+			+btn("#modal-order-time-moderator", 'Выберите время / Модератор')
+			+btn("#modal-order-people", 'Запись на 15 ноября (четверг) 15:00')
+			+btn("#modal-order-people2", 'Запись на 15 ноября (четверг) 15:00')
+
+	+parts('footer')
+      
+
+
+

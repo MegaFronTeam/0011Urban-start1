@@ -1,0 +1,228 @@
+
+mixin modal() 
+	//  start modals
+	div(id="modal-call"  style="display: none" )
+		+b.modal-win
+			+form-wrap
+				.text-center
+					+e.title.form-data.h3.ttu Обратный звонок
+					p.after-headline Заполните заявку и&nbsp;мы&nbsp;с&nbsp;Вами свяжемся в&nbsp;течение 15&nbsp;минут
+
+				+input("Ваше Имя")(required)  
+				+e.BUTTON.btn.btn(type="submit"  )  
+				+policy()
+				+policy()
+	// #modal-call
+	
+	div(id="modal-thank"  style="display: none" )
+		+b.modal-win.text-center
+			+e.title.h3: strong Спасибо, Ваша анкета принята к рассмотрению
+			.h6.fw-400 Совсем скоро Вы получите письмо по следующим шагам.
+			br
+			+e.footer.small.strong При возникновении вопросов обращайтесь на почту
+				br
+				a(href="mailto:UrbanLeader@manage.mos.ru") UrbanLeader@manage.mos.ru
+	// #modal-call
+
+	
+	
+	div(id="modal-order"  style="display: none" )
+		+b.modal-win--lg.text-center
+			+e.title.h3: strong Вы записаны на 15 ноября 16:00
+			.h6.fw-400 СС вами свяжутся для начала консультации.
+	// #modal-call
+	
+	div(id="modal-time"  style="display: none" )
+		+b.modal-win--lg.text-center
+			+e.title.h3 Вы подтверждаете запись на #[strong 18 декабря в 17:00]?
+			+e.btns.text-center 
+				a.btn.btn-primary(href="#") Да
+				a.btn.btn-outline-primary(href="#") Нет
+	// #modal-call
+
+	
+	
+	div(id="modal-time2"  style="display: none" )
+		+b.modal-win--lg.text-center
+			+e.title.h3 Вы уже записаны на #[strong 15 ноября 16:00].  
+				br
+				| Отменить запись и записаться 
+				br
+				| на 14 ноября 15:00?
+			+e.btns.text-center 
+				a.btn.btn-primary(href="#") Да
+				a.btn.btn-outline-primary(href="#") Нет
+	// #modal-call
+
+	
+	div(id="modal-cancel"  style="display: none" )
+		+b.modal-win--lg.text-center
+			+e.title.h3 Вы уверены, что хотите отменить запись <br> на #[strong 15 ноября 16:00]?
+			+e.btns.text-center 
+				a.btn.btn-primary(href="#") Отменить запись
+				a.btn.btn-outline-primary(href="#") Не отменять запись
+	// #modal-call
+	
+	div(id="modal-cancel2"  style="display: none" )
+		+b.modal-win--lg.text-center
+			+e.title.h3: strong Запись отменена
+			.h6.fw-400 Для записи выберите удобное время.
+	// #modal-call
+
+	
+	
+	div(id="modal-order-time"  style="display: none" )
+		+b.modal-win--lg.text-center
+			+e.title.h3: strong Выберите время для приема
+			+b.time-block
+				mixin time(t)
+					+b.LABEL.time-item
+						input(type="radio" name="time").btn-check&attributes(attributes)
+						+e.text.btn.btn-outline-primary= t
+				+time(`08:00`)
+				+time(`08:30`)
+				+time(`09:30`)
+				+time(`10:00`)(disabled)
+				+time(`10:30`)(disabled)
+				+time(`11:00`)(disabled)
+				+time(`11:30`)(disabled)
+				+time(`12:00`)(disabled)
+				+time(`12:30`)
+				+time(`13:00`)
+				+time(`13:30`)
+				+time(`14:00`)
+				+time(`14:30`)
+				+time(`15:00`)
+				+time(`15:30`)
+				+time(`16:00`)
+				+time(`16:30`)
+				+time(`17:00`)
+				+time(`17:30`)
+				+time(`18:00`)
+				+time(`18:30`)
+				+time(`19:00`)
+				+time(`19:30`)
+				+time(`20:00`)
+				+time(`20:30`)
+			+e.btns.text-center 
+				a.btn.btn-primary(href="#") Сохранить
+				button.btn.btn-outline-primary.modal-close-js.order-md-first Закрыть
+	// #modal-call
+	
+	
+	div(id="modal-order-time-moderator"  style="display: none" )
+		+b.modal-win--lg.--mega-lg
+			+e.title.h3.text-center: strong Выберите время для приема
+			+b.time-block
+				mixin time(t)
+					+b.time-item-moderator(data-max-value='4' data-min-value="2")&attributes(attributes)
+						+e.head.row
+							
+							+e.time.col= t
+							+e.info.col-auto
+								+icon("info")
+								+e.dropdown Чтобы уменьшить количество записи людей, нужно удалить часть существующих записей.
+							.col-auto: +e.count 2/4
+						+e.body
+							+e.text Кол-во записей
+							+addblock()
+							block
+				+time(`08:00`).disabled
+				+time(`08:30`).disabled
+				+time(`09:30`).disabled
+				+time(`10:00`).disabled
+				+time(`10:30`).disabled
+				+time(`11:00`)
+					.text-center
+						+e.link(href="#")
+							| Запись
+							+e.arrow
+								+icon("chevron-right")
+				+time(`11:30`)
+				+time(`12:00`)
+				+time(`12:30`)
+				+time(`13:00`)
+				+time(`13:30`)
+				+time(`14:00`)
+				+time(`14:30`)
+				+time(`15:00`)
+				+time(`15:30`)
+				+time(`16:00`)
+				+time(`16:30`)
+				+time(`17:00`)
+				+time(`17:30`)
+				+time(`18:00`)
+				+time(`18:30`)
+				+time(`19:00`)
+				+time(`19:30`)
+				+time(`20:00`)
+				+time(`20:30`)
+			+e.btns.text-center 
+				a.btn.btn-primary(href="#") Сохранить
+				a.btn.btn-outline-primary.order-md-first(href="#modal-close" ).link-modal-js Закрыть
+	// #modal-call
+
+	div(id="modal-close"  style="display: none" )
+		+b.modal-win--lg.text-center
+			+e.title.h3 Вы уверены, что хотите закрыть не сохранив ?
+			+e.btns.text-center 
+				a.btn.btn-primary(href="#") Сохранить
+				button.btn.btn-outline-primary.modal-close-js.order-md-first Закрыть
+	// #modal-call
+	div(id="modal-order-people"  style="display: none" )
+		+b.modal-win--list
+			+e.title.h3.text-center: .strong Запись на 15 ноября (четверг) 15:00
+			+b.table 
+				+e.tr
+					+e.td--check
+						input.form-check-input(type="checkbox", name="").main-check
+					+e.td
+						+e.remove-all
+							+icon("delete")
+							| Удалить выбранные
+					+e.td.text-md-end
+					+e.td.text-md-end
+
+
+				- for (var x = 0; x < 10; x++)
+					+e.tr
+						+e.td--check
+							input.form-check-input(type="checkbox", name="").other-check
+						+e.td--name Еркова Дарья Валерьевна
+						+e.td--email.text-md-end
+							a(href="maiulto:erkova@yandex.ru")
+								+icon("open")
+								| erkova@yandex.ru
+						+e.td--btn.text-md-end
+							+e.btn.btn.btn-secondary(type="button"  href="#modal-delete2" ).link-modal-js Удалить
+
+
+			//- +e.btns.text-center 
+			//- 	a.btn.btn-primary(href="#") Сохранить
+			//- 	button.btn.btn-outline-primary.modal-close-js.order-md-first Закрыть
+
+	// #modal-call
+	
+	div(id="modal-order-people2"  style="display: none" )
+		+b.modal-win--list
+			+e.title.h3.text-center: .strong Запись на 15 ноября (четверг) 15:00
+			+b.table 
+			
+
+				- for (var x = 0; x < 10; x++)
+					+e.tr
+						+e.td Еркова Дарья Валерьевна
+						+e.td.text-md-end
+							a(href="maiulto:erkova@yandex.ru")
+								+icon("open")
+								| erkova@yandex.ru
+	// #modal-call
+
+	div(id="modal-delete2"  style="display: none" )
+		+b.modal-win--lg.text-center
+			+e.title.h3.fw-400 Вы уверены, что хотите удалить запись 
+				.strong Прохорова Ильи Сергеевича на 15 ноября 15:00 ?
+			+e.btns.text-center 
+				a.btn.btn-primary(href="#") Удалить запись
+				a.btn.btn-outline-primary(href="#") Не удалять запись
+	// end modals

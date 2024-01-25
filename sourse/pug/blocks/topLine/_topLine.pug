@@ -1,0 +1,22 @@
+mixin topLine()
+	// start topLine
+	+b.topLine.section#topLine&attributes(attributes)
+		+e.container
+			.container
+				+e.row.row
+					.col
+						+e.logo(href="#"): +img('img/logo.svg')
+					.col-auto
+						+e.account-wrap
+							+e.account.BUTTON
+								+icon('person')
+								span.d-none.d-lg-inline Константин Ш.
+							+e.account-menu.UL
+								li: a(href="#") 
+									+icon('settings') 
+									| Настройки
+								li: a(href="#") 
+									+icon('exit') 
+									| Выход
+
+	// end topLine

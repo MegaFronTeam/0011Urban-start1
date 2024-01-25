@@ -1,0 +1,39 @@
+extends ../layout/main.pug
+
+include ../blocks/headerBlock/_headerBlock.pug
+include ../blocks/sForm/_sForm.pug
+include ../blocks/sContent/_sContent.pug
+ 
+include ../blocks/sContact/_sContact.pug
+include ../blocks/sForm/_sForm.pug
+include ../blocks/sSchedule/_sSchedule.pug
+include ../blocks/sCatalog/_sCatalog.pug
+
+block variables
+	- let  mainPage= 'main-page' 
+	- let  bg= 'main.jpg'
+
+block title
+	- let  title= index.head.title
+	title= title
+block pagecontent
+	//- +mob-mnu()
+	
+	
+	+parts('header')
+	main
+		.container.px-0
+			+stepsRow(
+					{class: "past", name: "Заявка принята",date: "21 нояб"},
+					{class: "past", name: "Анкетирование",date: "с 30 нояб по 2 дек"},
+					{class: "past", name: "Тестирование",date: "с 2 дек по 10 дек"},
+					{class: "current", name: "Запись на оценку",date: "с 12 дек по 20 дек"},
+					{class: "next", name: "Оценка",date: "с 21 дек по 22 дек"},
+					{class: "current", name: "Вы зачислены",date: "23 дек"}
+				)
+		+sSchedule
+	+parts('footer')
+      
+
+
+

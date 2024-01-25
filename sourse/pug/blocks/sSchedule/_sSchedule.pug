@@ -1,0 +1,179 @@
+mixin day(date,day, t)
+	.row
+		.col
+			+e.day&attributes(attributes)
+				span= date
+				| #{day}
+		if t == 'title'
+			.col-auto
+				+e.btn-order(data-fancybox="modal" href='#modal-order-time').btn.btn-primary
+		if t == 'edit'
+			.col-auto
+				+e.btn-order--edit(data-fancybox="modal" href='#modal-order-time').btn.btn-primary
+					+icon('pen')
+
+mixin time(time,cancel)
+
+	+e.time.btn.btn-outline-primary(class= (cancel ? 'sSchedule__time--cancel' : ""))
+		span= time
+		+e.toggle-block
+			
+			+e.name.small.strong Иванов Игорь Михайлович
+			+e.link(href="#")
+				+icon('open')
+				+e.text-link ivanovivanov@edu.mos.ru
+			+e.cancel-btn(href="#") Отменить
+
+mixin time2(time,cancel)
+
+	+e.time--2(class= (cancel ? 'sSchedule__time--cancel' : ""))
+		.row
+			.col-auto
+				span= time
+			+e.count.col  0/10
+			.col-auto
+				a(href="#").btn.btn-secondary.btn-circle
+					+icon("chevron-right") 
+
+mixin sSchedule(title)
+	// start sSchedule
+	+b.SECTION.sSchedule.section#sSchedule&attributes(attributes)
+		if title
+			+e.title!= title
+		.container
+			+e.head
+				+e.row.row
+					.col-md-4
+						//- +input('Выберите дату','date')
+						.data-picker-wrap
+								+input("Выберите дату",'text')(required readonly autocomplete="off"  class="date-input").data-picker--js
+									+icon('calendar')
+					.col-md-4.text-center
+						+b.section-title
+							h2 Ноябрь
+			+e.slider-wrap
+				+e.slider.swiper
+					.swiper-wrapper
+						//- -for (var i=1; i <= 30; i++)
+						+e.slide.swiper-slide
+							+day('13','вт', 'title').--current
+							+time('09:00')
+							+time('12:00')
+						+e.slide.swiper-slide
+							+day('14','ср')
+							+e.empty Запись недоступна
+						+e.slide.swiper-slide
+							+day('15','чт', 'title')
+							+time('11:00')
+							+time('11:30')
+							+time('12:00')
+							+time('12:30')
+						+e.slide.swiper-slide
+							+day('16','пт', 'title')
+							+time('13:00')
+							+time('16:00')
+						+e.slide.swiper-slide
+							+day('17','сб', 'title')
+							+time('15:00','cancel')
+							+time('15:30')
+							+time('16:00')
+							+time('16:30')
+							+time('17:00')
+						+e.slide.swiper-slide
+							+day('18','вс', 'title')
+							+e.empty Запись недоступна
+						+e.slide.swiper-slide
+							+day('19','пн', 'title')
+							+time('08:00')
+							+time('09:00')
+							+time('09:30')
+						+e.slide.swiper-slide
+							+day('20','вт', 'title')
+							+time('15:00','cancel')
+							+time('15:30')
+							+time('16:00')
+							+time('16:30')
+							+time('17:00')
+						+e.slide.swiper-slide
+							+day('21','ср', 'title')
+							+e.empty Запись недоступна
+						+e.slide.swiper-slide
+							+day('22','чт')
+							+time('08:00')
+							+time('09:00')
+							+time('09:30')
+				+arrow
+	// end sSchedule
+
+	
+
+mixin sSchedule28(title)
+	// start sSchedule
+	+b.SECTION.sSchedule.section#sSchedule&attributes(attributes)
+		if title
+			+e.title!= title
+		.container
+			+e.head
+				+e.row.row
+					.col-md-4
+						//- +input('Выберите дату','date')
+						.data-picker-wrap
+								+input("Выберите дату",'text')(required readonly autocomplete="off"  class="date-input").data-picker--js
+									+icon('calendar')
+					.col-md-4.text-center
+						+b.section-title
+							h2 Ноябрь
+			+e.slider-wrap
+				+e.slider.swiper
+					.swiper-wrapper
+						//- -for (var i=1; i <= 30; i++)
+						+e.slide.swiper-slide
+							+day('13','вт', 'title').--current
+							+time2('09:00')
+							+time2('12:00')
+						+e.slide.swiper-slide
+							+day('14','ср')
+							+e.empty Запись недоступна
+						+e.slide.swiper-slide
+							+day('15','чт', 'title')
+							+time2('11:00')
+							+time2('11:30')
+							+time2('12:00')
+							+time2('12:30')
+						+e.slide.swiper-slide
+							+day('16','пт', 'edit')
+							+time2('13:00')
+							+time2('16:00')
+						+e.slide.swiper-slide
+							+day('17','сб', 'title')
+							+time2('15:00','cancel')
+							+time2('15:30')
+							+time2('16:00')
+							+time2('16:30')
+							+time2('17:00')
+						+e.slide.swiper-slide
+							+day('18','вс', 'title')
+							+e.empty Запись недоступна
+						+e.slide.swiper-slide
+							+day('19','пн', 'title')
+							+time2('08:00')
+							+time2('09:00')
+							+time2('09:30')
+						+e.slide.swiper-slide
+							+day('20','вт', 'title')
+							+time2('15:00','cancel')
+							+time2('15:30')
+							+time2('16:00')
+							+time2('16:30')
+							+time2('17:00')
+						+e.slide.swiper-slide
+							+day('21','ср', 'title')
+							+e.empty Запись недоступна
+						+e.slide.swiper-slide
+							+day('22','чт')
+							+time2('08:00')
+							+time2('09:00')
+							+time2('09:30')
+				+arrow
+	// end sSchedule
+
