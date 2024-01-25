@@ -40,12 +40,12 @@ $blue: #0d6efd !default;
 $indigo: #6610f2 !default;
 $purple: #6f42c1 !default;
 $pink: #d63384 !default;
-$red: #dc3545 !default;
+$red: #F97272;
 $orange: #fd7e14 !default;
-$yellow: #ffc107 !default;
-$green: #198754 !default;
-$teal: #00857c !default;
-$cyan: #0dcaf0 !default;
+$yellow: #F8C86C;
+$green: #5DCD8A;
+$teal: #007E87;
+$cyan: #00ABBE;
 // scss-docs-end color-variables
 
 // scss-docs-start colors-map
@@ -454,7 +454,7 @@ $body-emphasis-color: $black !default;
 //
 // Style anchor elements.
 
-$link-color: $primary !default;
+$link-color: $cyan;
 $link-decoration: underline !default;
 $link-shade-percentage: 20% !default;
 $link-hover-color: shift-color($link-color, $link-shade-percentage) !default;

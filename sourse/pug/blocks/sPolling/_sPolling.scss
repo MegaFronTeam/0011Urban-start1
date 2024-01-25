@@ -1,7 +1,7 @@
 // start .sPolling
 .sPolling {
 	@include media-breakpoint-up(lg) {
-		--sPT: #{rem(5)};
+		--sPT: #{rem(65)};
 	}
 	--sPT: #{rem(15)};
 	

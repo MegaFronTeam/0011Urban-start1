@@ -124,7 +124,7 @@
 		background-color: $primary;
 		@include media-breakpoint-up(lg) {
 			right: 99%;
-			background-color: #4DA9A3;
+			background-color: $cyan;
 		}
 		right: -50vw;
 		}
@@ -232,7 +232,7 @@
 			}
 		}
 		&--past {
-			--bg-color: #4DA9A3;
+			--bg-color: #00ABBE;
 			--color:	#{$body-color};
 			&:hover {
 				--color:	#{$white};
@@ -270,7 +270,7 @@
 				}
 				&.steps__item--current{
 					&::before{
-						background-color: #4DA9A3;
+						background-color: $cyan;
 					}
 				}
 			}
