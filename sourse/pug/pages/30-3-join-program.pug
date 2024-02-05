@@ -1,0 +1,45 @@
+extends ../layout/main.pug
+
+include ../blocks/headerBlock/_headerBlock.pug
+include ../blocks/sForm/_sForm.pug
+include ../blocks/sContent/_sContent.pug
+ 
+include ../blocks/sContact/_sContact.pug
+include ../blocks/sForm/_sForm.pug
+include ../blocks/sPolling/_sPolling.pug
+include ../blocks/sCatalog/_sCatalog.pug
+
+block variables
+	- let  mainPage= 'bg-gray' 
+	- let  bg= 'polling.jpg'
+
+block title
+	- let  title= "Зачисление"
+	title= title
+block pagecontent
+	//- +mob-mnu()
+	
+	
+	+parts('header')
+	main
+		.container.px-0
+			+stepsRow(
+					{class: "past", name: "Заявка принята",date: ""},
+					{class: "past", name: "Анкетирование",date: ""},
+					{class: "past", name: "Тестирование",date: ""},
+          {class: "past", name: "Видеоинтервью",date: ""},
+					{class: "current", name: "Зачисление на программу", date: " "}
+				)
+		.polling-container#join
+			+sPolling
+				+b.form-wrap.--md
+					.h6.fw-400.text-center Поздравляем, вы успешно прошли конкурсный отбор на программу «Урбан Лидер. СТАРТ»!
+					.h6.fw-400.text-center Обязательно подтвердите свое участие до 12 апреля, нажав кнопку «Подтвердить участие» . Если по какой-либо причине вы не сможете присоединиться к программе, нажмите кнопку «Отказаться от участия».
+				+e.btns.text-center 
+					a.btn.btn-primary(href="#") Подтвердить участие
+					a.btn.btn-outline-primary(href="#") Отказаться от участия
+	+parts('footer')
+      
+
+
+

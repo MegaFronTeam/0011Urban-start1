@@ -1,0 +1,41 @@
+extends ../layout/main.pug
+
+include ../blocks/headerBlock/_headerBlock.pug
+include ../blocks/sForm/_sForm.pug
+include ../blocks/sContent/_sContent.pug
+ 
+include ../blocks/sContact/_sContact.pug
+include ../blocks/sForm/_sForm.pug
+include ../blocks/sPolling/_sPolling.pug
+include ../blocks/sCatalog/_sCatalog.pug
+
+block variables
+	- let  mainPage= 'bg-gray' 
+	- let  bg= 'polling.jpg'
+
+block title
+	- let  title= "Видеоинтервью"
+	title= title
+block pagecontent
+	//- +mob-mnu()
+	
+	
+	+parts('header')
+	main
+		.container.px-0
+			+stepsRow(
+					{class: "past", name: "Заявка принята",date: ""},
+					{class: "past", name: "Анкетирование",date: ""},
+					{class: "past", name: "Тестирование",date: ""},
+          {class: "current", name: "Видеоинтервью",date: ""},
+					{class: "next", name: "Зачисление на программу", date: " "}
+				)
+		.polling-container
+			+sPolling
+				+b.form-wrap.--md
+					.h6.fw-400.text-center Видео интервью состоит из нескольких коротких вопросов. Записать его можно в любое время и с любого устройства. Для записи видео интервью перейдите #[a(href="#") по ссылке].
+	+parts('footer')
+      
+
+
+

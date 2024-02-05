@@ -32,3 +32,49 @@
 	@include media-breakpoint-only(xl) {}
 	@include media-breakpoint-down(xl) {}
 } // end.sPolling
+
+// video-interview
+.polling-container {
+  @include media-breakpoint-up(md) {
+    margin-top: rem(60);
+  }
+  .form-wrap--md {
+    max-width: rem(457) !important;
+    div {
+      line-height: rem(24);
+    }
+  }
+}
+
+// join
+#join {
+  .form-wrap--md {
+    max-width: rem(533) !important;
+  }
+  .form-wrap .h6 {
+    &:first-child {
+      margin-bottom: rem(16);
+    }
+    &:nth-child(2) {
+      margin-bottom: rem(32);
+    }
+    
+  }
+  .sPolling__btns {
+    display: flex;
+    gap: rem(8);
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .btn {
+    min-width: rem(259);
+    --bs-btn-padding-x: #{rem(30)};
+    // --bs-btn-padding-y: 0.25rem;
+    @include media-breakpoint-up(md) {
+      &:nth-child(1) {
+        order: 1;
+      }
+    }
+    
+  }
+}
